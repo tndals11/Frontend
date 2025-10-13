@@ -60,3 +60,90 @@ sports[4] = '탁구';
 console.log(sports); // [ '축구', '야구', 'baskeball', <1 empty item>, '탁구', '배구' ]
 
 console.log(sports[3]); // undefined : 비워진 배열 값
+
+let snacks = ['칸쵸', '초코송이', '포테토칩', '초코송이'];
+
+// 1) indexOf(요소값) : 찾는 요소의 첫 번째 인덱스를 반환 (없으면 -1)
+console.log(snacks.indexOf('초코송이')); // 1
+console.log(snacks.indexOf('딸기송이')); // -1
+
+// 2) lastIndexOf(요소값) : 배열의 끝부터 찾는 요소의 첫 번째 인덱스를 반환 (없으면 -1)
+console.log(snacks.lastIndexOf('초코송이')); // 3
+console.log(snacks.lastIndexOf('딸기송이')); // -1
+
+// 3) includes() : 배열에 해당 요소의 존재 여부를 확인 - boolean 값 반환
+let hasPotatochip = snacks.includes('포테토칩');
+console.log(hasPotatochip); // true
+
+// ? 배열 조작 함수
+fruits = ['Apple', 'Banana'];
+
+// 1) 추가 : push()     - 맨 마지막에 요소 추가 (+ 수정된 배열 길이를 반환)
+//          unshift()   - 제일 첫 번째 요소부터 하나 이상의 요소를 추가 (+ 수정된 배열 길이를 반환)
+
+// 2) 삭제 : pop()      - 맨 마지막 요소 제거 (+ 해당 값 반환)
+//          shift()     - 제일 첫 번째 요소 제거 (+ 해당 값 반환)
+
+// +) splice() - 추가 / 제거 
+
+let newLenth = fruits.push('Cherry');
+console.log(newLenth); // 3
+
+let lastFruit = fruits.pop();
+console.log(lastFruit); // Cherry
+console.log(fruits); // [ 'Apple', 'Banana' ]
+
+let firstFruit = fruits.shift();
+console.log(firstFruit); // Apple
+console.log(fruits); // [ 'Banana' ]
+
+
+newLenth = fruits.unshift('mango', 'orange'); // 시작 부분에 하나 이상의 요소 추가 (, 로 나열)
+console.log(newLenth); // 3
+console.log(fruits); // [ 'mango', 'orange', 'Banana' ]
+
+// ? 추가 : 추가 후의 배열 길이를 반환
+// 삭제 : 삭제한 요소를 반환
+
+// ? splice()
+// 1) 추가 : splice(시작 인덱스, 0, 아이템 나열)
+//          ! >> 3번째 인자값이 있으면 추가로 인식 !
+console.log(fruits); // [ 'mango', 'orange', 'Banana' ]
+fruits.splice(1, 0, 'Strawberry', 'Coconut'); // [ 'mango', 'Strawberry', 'Coconut', 'orange', 'Banana' ]
+console.log(fruits);
+
+// 2) 삭제 : splice(시작인덱스, 삭제할 요소의 개수)
+//          ! >> 2번째 인자 값의 개수 만큼 시작 인덱스에서 삭제
+let removedFruits = fruits.splice(1, 2); 
+console.log(fruits); // [ 'mango', 'orange', 'Banana' ]
+
+// ? 요소 정렬
+// sort() : 오름차순 정렬
+// reverse() : 내림차순 정렬
+console.log(fruits.sort());
+console.log(fruits.reverse());
+
+// ? 배열 반환
+let fruitValues = ['사과', '바나나', '망고'];
+console.log(fruitValues.join()); // 사과,바나나,망고 // 구분자를 전달하지 않으면 기본값 ','
+console.log(fruitValues.join(', '));
+console.log(fruitValues.join('-'));
+console.log(fruitValues.join(' '));
+
+let str1 = '사과,바나나,망고';
+let str2 = '사과-바나나-망고';
+let str3 = '사과 바나나 망고';
+console.log(str1.split(',')); 
+console.log(str2.split('-'));
+console.log(str3.split(' ')); // [ '사과', '바나나', '망고' ]
+
+// !다차원 배열
+let matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9, 10]
+];
+
+console.log(matrix[2]); // [ 7, 8, 9, 10 ]
+
+console.log(matrix[2][3]); // 10
