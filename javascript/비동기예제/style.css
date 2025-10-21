@@ -1,0 +1,131 @@
+:root {
+  --primary: #4caf50;
+  --primary-hover: #43a047;
+  --bg: #f9f9fb;
+  --card-bg: #ffffff;
+  --border: #e5e7eb;
+  --text-main: #333;
+  --tect-sub: #555;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-main);
+  margin: 0;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+}
+
+h1 {
+  color: var(--primary);
+  font: 1.8em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 0;
+}
+
+h1::before {
+  /* 해당 선택자 요소 출력 전에 이모지 등 내용 추가 */
+  content: '📢';
+  font-size: 1.4em;
+}
+
+h2 {
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 4px;
+  margin-top: 40px;
+  color: var(--text-main);
+}
+
+
+input, textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s transform 0.1s;
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+.notice {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notice {
+  font-size: 1.1em;
+  color: var(--text-main);
+  padding: 16px;
+  margin-bottom: 14px;
+  transition: box-shadow 0.2s;
+}
+
+.notice:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notice strong {
+  font-size: 1.1em;
+  color: var(--text-main);
+}
+
+.notice em {
+  color: var(--tect-sub);
+  font-size: 0.9em;
+  margin-left: 4px;
+}
+
+.notice small {
+  color: #888;
+  font-size: 0.8em;
+}
+
+.notice button {
+  background-color: tomato;
+  margin-top: 8px;
+  padding: 2px 6px;
+  font-size: 0.9em;
+}
+
+.notice button:hover {
+  background-color: #dc2626;
+}
