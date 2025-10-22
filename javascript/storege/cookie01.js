@@ -39,6 +39,8 @@ document.cookie = "username=hgd; path=/;"
 // : /example.com, /google.com
 // - 쿠키가 유효한 도메인 지정
 
+// +) 같은 이름의 쿠키를 다시 설정(재할당)하면 자동 수정
+
 // * 만료 날짜 설정
 // : expires 속성을 설정
 // - 기본값(설정X): 세션 쿠키로 자동 설정
@@ -61,3 +63,41 @@ let expires = "expires=" + date.toUTCString();
 // : "expires=시간문자열"
 
 document.cookie = "userEmail=qwe123;" + expires + "; path=/";
+
+// ? 쿠기 만료 개념
+// : 브라우저가 스스로 만료를 관리
+// - 자동 삭제 (즉시 사라짐) X
+// >> 브라우저가 쿠키에 접근하거나 갱신할 때 정리
+// >> 만료 시간 후에도 메모리상에는 잠시 남아있을 수 있음
+
+// * 쿠키 읽기
+// : 쿠키는 하나의 문자열로 반환
+console.log(document.cookie);
+// username=hgd; username=hgd; useremail=qwe123
+
+function getCookie(name) {
+  let cookies = document.cookie.split('; ');
+  // cf) for in 연산자
+  // for (변수종류 변수명 in 배열명) { ... }
+  // >> 객체의(key)를 순회
+  // >> 사용 권장 대상: 일반 객체
+
+  // cf) for of 연산자
+  // for (변수종류 변수명 of 이터러블) { ... }
+  // >> 이터러블(순서가 있는 자료형: 배열, 문자열, Map, Set 등)
+  // >> 실제 요소 값을 순회
+  // >> 사용 권장 대상 : 배열, 문자열 등
+  for (let cookie of cookies) {
+    let [key, value] = cookie.split('='); // 구조 분해 할당
+    
+    if (key === name) return value;
+  
+  }
+  return null;
+}
+
+console.log(getCookie("userEmail"));
+
+//* 쿠키 삭제
+// : 만료 시간을 과거 시간으로 설정
+document.cookie = "username=; expires=Thu, 01, Jan 1970 00:00:00 GMT; path=/"
