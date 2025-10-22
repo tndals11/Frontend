@@ -37,7 +37,7 @@ let userAge = getCookieValue("userAge");
 console.log("userAge : " + userAge);
 
 // +) 쿠키값 변경
-document.cookie = "username=이길동";
+document.cookie = "username=삼길동";
 
 let changeUsername = getCookieValue('username');
 console.log(changeUsername);
