@@ -121,7 +121,7 @@ type UserProfile = {
 }
 
 let userProfile:UserProfile = {
-  username: '홍길동',;
+  username: '홍길동',
   email: 'qwer1234',
   address: {
     street: '123 St',
