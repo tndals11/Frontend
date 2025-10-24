@@ -10,17 +10,16 @@ mixedType = true;
 // ! 2. 함수 매개변수에 Union 타입 적용
 // number와 string 타입 중 하나를 매개변수로 받아, 해당 값이 number일 경우 숫자를 2배로 증가시키고, string일 경우 그대로 반환하는 함수 doubleOrNothing을 작성
 
-type Union = number | string;
-
-function doubleOrNothing(type : Union) {
-    if (typeof type === 'number' ) {
-      return type * 2;
+function doubleOrNothing(input : number | string) {
+    if (typeof input === 'number' ) {
+      console.log(input * 2);
     } else {
-      return type;
+      console.log(input);
     }
 }
 
-console.log(doubleOrNothing('홍길동'));
+doubleOrNothing(10);
+doubleOrNothing('hello');
 
 // ! 3. Union 타입과 타입 가드를 활용한 고급 예제
 // Admin과 User 타입 명시
@@ -40,14 +39,84 @@ type User = {
   username: string;
 }
 
-type adminOrUser = Admin | User;
+type Person = Admin | User;
 
-let Person:adminOrUser = {
-  id:  1,
-  username: '홍길동',
+function identifyPerson(person: Person) {
+  if ('isAdmin' in person) {
+    console.log(`관리자 계정입니다.`);
+  } else {
+    console.log('유저 계정입니다.');
+  }
 }
 
-console.log(Person); // { id: 1, username: '홍길동' }
-
-function identifyPerson(someone: Admin | User) {
+const adminPerson: Person = {
+  id: 1,
+  isAdmin: true
 }
+
+const userPerson: Person = {
+  id: 2,
+  username: '홍길동'
+}
+
+identifyPerson(adminPerson); // 관리자 계정입니다.
+identifyPerson(userPerson); // 유저 계정입니다.
+
+// & ============= 인터섹션 ============= //
+//! 문제 1: 기본 Intersection 타입 생성
+// - Person 타입과 ContactDetails 타입을 결합하여 Employee 타입을 생성
+// - Employee 타입은 Person의 모든 속성 (name, age)과 ContactDetails의 모든 속성(email, phone)을 포함
+
+type PersonType = {
+  name: string;
+  age: number;
+}
+
+type ContactDetails = {
+  email: string;
+  phone: string;
+}
+
+type Employee = PersonType & ContactDetails;
+
+let employee1: Employee = {
+  name: '홍길동',
+  age: 62,
+  email: 'qwer12334',
+  phone: '123-456-789'
+}
+
+//! 문제 2: 함수 반환 타입으로 Intersection 사용
+// - Vehicle 타입과 Engine 타입을 결합하여 Car 타입 생성
+// - createCar 함수를 구현하여, 주어진 Vehicle과 Engine 정보를 받아 Car 객체를 반환하도록 구현
+
+type Vehicle = {
+  make: string;
+  model: string;
+}
+
+type Engine = {
+  engineType: string;
+  horsepower: number;
+}
+
+type Car = Vehicle & Engine;
+
+function createCar(Vehicle: Vehicle, engine: Engine): Car {
+  // 구조 분해 할당 + 스프레드 연산자를 사용하는 객체 생성 방법
+  return {...Vehicle, ...engine};
+}
+
+let v1: Vehicle = {
+  make: 'kia',
+  model: 'k8'
+}
+
+let engine: Engine = {
+  engineType: '하이브리드',
+  horsepower: 200
+}
+
+let newCar = createCar(v1, engine);
+console.log(newCar);
+// { make: 'kia', model: 'k8', engineType: '하이브리드', horsepower: 200 }
