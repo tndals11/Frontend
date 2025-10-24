@@ -3,7 +3,7 @@
 // >> 일부 무료 사용 가능
 // https://openweathermap.org/api
 
-const apikey = "55ee84d4261ab7e6c999471f54f0c656";
+const apikey = "dc0963d9d2fcc3e2d3b4a6a05cf1250d";
 const lang = "kr";
 
 /*
