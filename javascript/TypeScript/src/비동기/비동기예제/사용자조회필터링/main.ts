@@ -101,7 +101,7 @@ const sortUsrs = (users: UsersType, key: 'name' | 'email'): UsersType => {
   return [...users].sort((a, b) => a[key].localeCompare(b[key]));
 }
 
-const addEventListener = (users: UsersType) => {
+const addEventListeners = (users: UsersType) => {
   const searchInput = document.getElementById('search-input') as HTMLInputElement;
   const sortSelect = document.getElementById('sort-select') as HTMLSelectElement;
 
@@ -127,7 +127,7 @@ const init = async():Promise<void> => {
   const users = await fetchUsers();
 
   displayUsers(users);
-  addEventListener(users);
+  addEventListeners(users);
 }
 
 document.addEventListener('DOMContentLoaded', init);

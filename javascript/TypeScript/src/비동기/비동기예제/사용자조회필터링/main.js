@@ -117,7 +117,7 @@ var sortUsrs = function (users, key) {
     //     1) 기존 문자열이 비교 문자열보다 뒤에 있음
     return __spreadArray([], users, true).sort(function (a, b) { return a[key].localeCompare(b[key]); });
 };
-var addEventListener = function (users) {
+var addEventListeners = function (users) {
     var searchInput = document.getElementById('search-input');
     var sortSelect = document.getElementById('sort-select');
     var dataFilterAndSort = function () {
@@ -141,7 +141,7 @@ var init = function () { return __awaiter(_this, void 0, void 0, function () {
             case 1:
                 users = _a.sent();
                 displayUsers(users);
-                addEventListener(users);
+                addEventListeners(users);
                 return [2 /*return*/];
         }
     });
