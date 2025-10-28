@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="app">
+    <h1>사용자 정렬 및 검색 필터링</h1>
+    <input type="text" id="search-input" placeholder="Search Users">
+
+    <!-- select & option: 사용자 데이터 정렬 -->
+    <select id="sort-select">
+      <option value="name">Sort by Name</option>
+      <option value="email">Sort by Email</option>
+    </select>
+
+    <div id="user-list"></div>
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+</html>
