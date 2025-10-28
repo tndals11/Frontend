@@ -126,7 +126,16 @@ const addEventListeners = (uesrs: UsersType) => {
   if (modal && closeModal) {
     closeModal.addEventListener('click', () => {
       modal.style.display = 'none';
-    })
+    });
+
+    // 브라우저 전체를 DOM 요소로 반환 (브라우저 탭의 전체 영역)
+    // : window
+    // cf) document: window에 로드되는 HTML 문서 그 자체
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
   }
 }
 
