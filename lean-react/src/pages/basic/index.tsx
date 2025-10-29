@@ -1,14 +1,15 @@
 // index.tsx
 // : index 파일명은 해당 폴더의 메인 파일로 인식
 // - import시 폴더명 만으로 가져오기 가능
-import React from 'react'
 import Counter from './React_Counter';
+import Component, { Img }  from './BasicComponent';
+import JSX from './JSX';
+import JSX02 from './JSX02';
 
 const h2style = {
   backgroundColor: 'black',
   color: 'orange'
 }
-
 
 // React는 반드시 반드시 컴포넌트명이 대문자
 function Index() {
@@ -24,6 +25,16 @@ function Index() {
       <h2 style={h2style}>1. 리액트 VS 타입스크립트 (카운터 예제)</h2>
       {/* Counter 컴포넌트 사용 */}
       <Counter />   
+      <h2 style={h2style}>2. Component: 리액트를 구성하는 기본구조</h2>
+      <Component />
+      {/* 컴포넌트: 재사용 가능한 UI 집합 */}
+      <div style={{backgroundColor: 'pink'}}>
+        <Img />
+      </div>
+
+      <h2 style={h2style}>3. JSX(TSX): 리액트의 기본 문법</h2>
+      <JSX />
+      <JSX02 />
     </div>
   )
 }

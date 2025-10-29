@@ -28,5 +28,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "pages/basic", "pages/index.ts"]
+  "include": ["src", "pages/basic", "src/pages/index.ts"]
 }

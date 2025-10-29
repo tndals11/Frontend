@@ -1,5 +1,5 @@
 import './App.css'
-import Basic from '@/pages/basic'
+import Basic from "@/pages/basic/index";
 
 function App() {
   return (
