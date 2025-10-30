@@ -80,7 +80,14 @@ function Handler() {
       <ConsoleButton message='B 버튼 클릭'> B버튼</ConsoleButton>
 
       <hr />
-      
+      <form onSubmit={(e) => {
+        e.preventDefault(); // 새로고침 방지
+        alert('전송 완료');
+      }}>
+
+        <button type='submit'>제출하기</button>
+        <input type="submit" />
+      </form>
     </div>
   )
 }
