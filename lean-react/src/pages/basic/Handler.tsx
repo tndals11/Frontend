@@ -50,7 +50,6 @@ function ConsoleButton({ message, children}: ConsoleProps) {
   )
 }
 
-
 //& 부모 컴포넌트
 function Handler() {
 
@@ -65,6 +64,19 @@ function Handler() {
   const buttonHandler = () => {
     console.log('부모로 부터 전달하는 이벤트 핸들러');
   }
+
+  /*
+    cf) 이벤트 핸들러 명명규칙 (권장 사항)
+    1) on- 시작
+      : props로 전달받는 이벤트 핸들러 (이벤트 바인딩 용)
+      - 컴포넌트 외부에서 전달받는 이벤트 핸들러
+      EX) onButtonClick, onFormSubmit
+    
+      2) -Handler | handler-
+      : 내부 함수 (실제 처리 함수)
+      - 내부에서 정의된 로직 함수
+      EX) buttonClickHandler, formSubmitHandler
+  */ 
 
   return (
     <div>
