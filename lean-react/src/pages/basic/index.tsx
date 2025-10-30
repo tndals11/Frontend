@@ -7,6 +7,7 @@ import JSX from './JSX';
 import JSX02 from './JSX02';
 import Props from './Props01';
 import Props02 from './Props02';
+import Rendering from './Rendering';
 
 const h2style = {
   backgroundColor: 'black',
@@ -41,6 +42,9 @@ function Index() {
       <h2 style={h2style}>4. Props: 리액트의 데이터 전달 (부모/자식)</h2>
       <Props />
       <Props02 />
+
+      <h2 style={h2style}>5. Rendering: 조건부 렌더링</h2>
+      <Rendering />
     </div>
   )
 }
