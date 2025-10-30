@@ -8,6 +8,7 @@ import JSX02 from './JSX02';
 import Props from './Props01';
 import Props02 from './Props02';
 import Rendering from './Rendering';
+import Handler from './Handler';
 
 const h2style = {
   backgroundColor: 'black',
@@ -45,6 +46,9 @@ function Index() {
 
       <h2 style={h2style}>5. Rendering: 조건부 렌더링</h2>
       <Rendering />
+
+      <h2 style={h2style}>6. Handler: 리액트의 이벤트 핸들러</h2>
+      <Handler />
     </div>
   )
 }
