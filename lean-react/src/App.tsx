@@ -1,5 +1,6 @@
 import './App.css'
 import Basic from "@/pages/basic/index";
+import { ExampleComponent } from './pages/basic/review';
 
 function App() {
   return (
