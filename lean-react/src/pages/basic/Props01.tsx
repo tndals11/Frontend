@@ -1,4 +1,5 @@
 import React from 'react'
+import { Wrapper } from './Props02';
 
 /*
   cf) 컴포넌트(Component): 리액트의 구성 요소 (UI)
@@ -85,7 +86,7 @@ function Props() {
   }
   
   return (
-    <div>
+    <Wrapper>
       <ChildComponent name='홍길동' />
       <ChildComponent2 name='이길동' />
 
@@ -95,7 +96,7 @@ function Props() {
 
       {/* ...props가 구조 분해 할당을 사용하여 각각의 속성명을 찾아감 */}
       <MultiProps2 {...props} />
-    </div>
+    </Wrapper>
   )
 }
 

@@ -33,6 +33,24 @@ const UserCard = ({ user }: UserCardProps) => {
   )
 }
 
+//! Wrapper 컴포넌트
+// : 다른 컴포넌트를 감싸는 컴포넌트
+// - props 데이터로 다른 컴포넌트(ReactNode)를 전달받음
+// - 자식 컴포넌트를 안전하게 받기 위한 타입
+
+type ChildrenType = {
+  // ReactNode: React내의 HTML 요소들 + 사용자 정의 컴포넌트들의 타입
+  children: React.ReactNode;
+}
+
+export const Wrapper = ({children}: ChildrenType) => {
+  return (
+    <div style={{ border: '2px solid black', padding: '16px'}}>
+      {children}
+    </div>
+  )
+}
+
 function Props02() {
   const userData = {
     name: '이길동',
@@ -48,6 +66,10 @@ function Props02() {
       */}
       <UserCard user={{ name: '홍길동', age: 18, email: 'qwer123@naver.com'}} />
       <UserCard user={userData} />
+    {/* <Wrapper> */}
+    <Wrapper>
+      <div>안녕하세요</div>
+    </Wrapper>
     </div>
   )
 }
