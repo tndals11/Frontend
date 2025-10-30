@@ -5,6 +5,8 @@ import Counter from './React_Counter';
 import Component, { Img }  from './BasicComponent';
 import JSX from './JSX';
 import JSX02 from './JSX02';
+import Props from './Props01';
+import Props02 from './Props02';
 
 const h2style = {
   backgroundColor: 'black',
@@ -35,6 +37,10 @@ function Index() {
       <h2 style={h2style}>3. JSX(TSX): 리액트의 기본 문법</h2>
       <JSX />
       <JSX02 />
+
+      <h2 style={h2style}>4. Props: 리액트의 데이터 전달 (부모/자식)</h2>
+      <Props />
+      <Props02 />
     </div>
   )
 }
