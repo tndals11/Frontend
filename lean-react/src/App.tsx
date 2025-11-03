@@ -3,6 +3,8 @@ import Basic from "@/pages/basic/index";
 import { Route, Routes } from 'react-router-dom';
 import RoutePages from '@/pages/route';
 import Navbar from './components/Navbar';
+import PostList from './pages/basic/PostList';
+import PostDetail from './components/PostDetail';
 
 function App() {
   return (
@@ -18,6 +20,10 @@ function App() {
           - 중첩된 자식 라우트 인식 
         */}
         <Route path='/route/*' element={<RoutePages />} />
+
+        <Route path='/practice/post' element={<PostList />} />
+        <Route path='/practice/post/:id' element={<PostDetail />} />
+
       </Routes>
     </>
   )
