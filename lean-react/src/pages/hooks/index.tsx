@@ -10,6 +10,8 @@ import Ref01 from "../useRef/Ref01";
 import Ref02 from "../useRef/Ref02";
 import Pratice01 from "../useRef/Pratice01";
 import Pratice02 from "../useRef/Pratice02";
+import Effect01 from "../useEffect/Effect01";
+import Effect02 from "../useEffect/Effect02";
 
 const h2style = {
   backgroundColor: "black",
@@ -22,6 +24,10 @@ function Index() {
       <h1 style={{ backgroundColor: "black", color: "white" }}>
         === 리액트 Hooks ===
       </h1>
+      <h2 style={h2style}>3. 리액트 Hooks - useEffect</h2>
+      <Effect01 />
+      <hr />
+      <Effect02 />
       <h2 style={h2style}>2. 리액트 Hooks - useRef</h2>
       <Ref01 />
       <hr />
