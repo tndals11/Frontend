@@ -12,6 +12,7 @@ import Pratice01 from "../useRef/Pratice01";
 import Pratice02 from "../useRef/Pratice02";
 import Effect01 from "../useEffect/Effect01";
 import Effect02 from "../useEffect/Effect02";
+import ErrectPractice01 from "../useEffect/ErrectPractice01";
 
 const h2style = {
   backgroundColor: "black",
@@ -28,6 +29,8 @@ function Index() {
       <Effect01 />
       <hr />
       <Effect02 />
+      <hr />
+      <ErrectPractice01 />
       <h2 style={h2style}>2. 리액트 Hooks - useRef</h2>
       <Ref01 />
       <hr />
