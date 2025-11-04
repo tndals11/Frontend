@@ -17,7 +17,7 @@ function Ref02() {
   //? DOM 요소 타입 - input(HTMLInputElement), div(HTMLDivElement)
   // & HTML은 Element나 null 타입 둘중에 하나를 반환
   // >> DOM 요소는 기본 요소 타입과 null 타입을 유니온으로 가짐
-  const inputRef = useRef<HTMLInputElement>();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const increment = () => {
     setCount((prevCount) => {
