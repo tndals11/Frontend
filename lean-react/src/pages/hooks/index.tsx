@@ -7,6 +7,8 @@ import State05 from "./userState/State05";
 import State06 from "./userState/State06";
 import State06_Child from "./userState/State06_Child";
 import Ref01 from "../useRef/Ref01";
+import Ref02 from "../useRef/Ref02";
+import Pratice01 from "../useRef/Pratice01";
 
 const h2style = {
   backgroundColor: "black",
@@ -21,6 +23,10 @@ function Index() {
       </h1>
       <h2 style={h2style}>2. 리액트 Hooks - useRef</h2>
       <Ref01 />
+      <hr />
+      <Ref02 />
+      <hr />
+      <Pratice01 />
       <h2 style={h2style}>1. 리액트 Hooks - useState</h2>
       <State01 />
       <hr />
