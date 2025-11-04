@@ -9,9 +9,12 @@ function ToggleSection({ title, children }: ToggleSectionProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const h4Style = {
-    backgroundColor: "black",
-    color: "orange",
+    color: "black",
     cursor: "pointer",
+    padding: "15px",
+    border: "1px solid #ccc",
+    borderRadius: "12px",
+    boxshadow: "0 8px 12px rgba(0, 0, 0, 0.8)",
   };
 
   const toggleSectionStyle: CSSProperties = {
