@@ -18,11 +18,18 @@ import UserCallback01 from "../useCallback/UseCallback01";
 import UserMemo01 from "../useCallback/UserMemo01";
 import Reducer01 from "../useReducer/Reducer01";
 import Reducer02 from "../useReducer/Reducer02";
+import Custom01 from "../useCustom/Custom01";
+import Custom02 from "../useCustom/Custom02";
 
 function Index() {
   return (
     <div>
       <h1>=== 리액트 Hooks 학습 ===</h1>
+      <ToggleSection title="6. 리액트 Hooks - custom Hooks">
+        <Custom01 /> <hr />
+        <Custom02 /> <hr />
+      </ToggleSection>
+
       <ToggleSection title="5. 리액트 Hooks - useReducer">
         <Reducer01 /> <hr />
         <Reducer02 />
