@@ -7,6 +7,7 @@ import Hooks from "@/pages/hooks";
 import Navbar from "./components/Navbar";
 import PostList from "./pages/basic/PostList";
 import PostDetail from "./components/PostDetail";
+import SearchApp from "./pages/practices/SearchApp";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
 
         <Route path="/practice/post" element={<PostList />} />
         <Route path="/practice/post/:id" element={<PostDetail />} />
+
+        <Route path="/practice/search" element={<SearchApp />} />
       </Routes>
     </>
   );
