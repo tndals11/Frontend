@@ -16,11 +16,18 @@ import ErrectPractice01 from "../useEffect/ErrectPractice01";
 import ToggleSection from "@/components/ToggleSection";
 import UserCallback01 from "../useCallback/UseCallback01";
 import UserMemo01 from "../useCallback/UserMemo01";
+import Reducer01 from "../useReducer/Reducer01";
+import Reducer02 from "../useReducer/Reducer02";
 
 function Index() {
   return (
     <div>
-      <h1>=== 리액트 학습 ===</h1>
+      <h1>=== 리액트 Hooks 학습 ===</h1>
+      <ToggleSection title="5. 리액트 Hooks - useReducer">
+        <Reducer01 /> <hr />
+        <Reducer02 />
+      </ToggleSection>
+
       <ToggleSection title="4. 리액트 - useCallback & useMemo">
         <UserCallback01 />
         <UserMemo01 />
