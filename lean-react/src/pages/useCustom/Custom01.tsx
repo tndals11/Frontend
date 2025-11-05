@@ -22,8 +22,8 @@ function Custom01() {
     <div>
       <p>Count: {count}</p>
       <button onClick={increment}>증가</button>
-      <button onClick={decrement}>초기화</button>
-      <button onClick={reset}>증가</button>
+      <button onClick={decrement}>감소</button>
+      <button onClick={reset}>초기화</button>
     </div>
   );
 }
