@@ -21,11 +21,21 @@ import Reducer02 from "../useReducer/Reducer02";
 import Custom01 from "../useCustom/Custom01";
 import Custom02 from "../useCustom/Custom02";
 import Custom03 from "../useCustom/Custom03";
+import TodoAppLocalStorage from "@/components/TodoAppLocalStorage";
+import Webcam from "./Webcam";
 
 function Index() {
   return (
     <div>
       <h1>=== 리액트 Hooks 학습 ===</h1>
+      <ToggleSection title="8. 리액트 Hooks - Webcam">
+        <Webcam />
+      </ToggleSection>
+
+      <ToggleSection title="7. 리액트 Hooks - Todo(LocalStorage)">
+        <TodoAppLocalStorage />
+      </ToggleSection>
+
       <ToggleSection title="6. 리액트 Hooks - custom Hooks">
         <Custom01 /> <hr />
         <Custom02 /> <hr />
