@@ -20,6 +20,7 @@ import Reducer01 from "../useReducer/Reducer01";
 import Reducer02 from "../useReducer/Reducer02";
 import Custom01 from "../useCustom/Custom01";
 import Custom02 from "../useCustom/Custom02";
+import Custom03 from "../useCustom/Custom03";
 
 function Index() {
   return (
@@ -28,6 +29,7 @@ function Index() {
       <ToggleSection title="6. 리액트 Hooks - custom Hooks">
         <Custom01 /> <hr />
         <Custom02 /> <hr />
+        <Custom03 /> <hr />
       </ToggleSection>
 
       <ToggleSection title="5. 리액트 Hooks - useReducer">
