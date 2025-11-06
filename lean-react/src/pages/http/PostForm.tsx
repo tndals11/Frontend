@@ -10,18 +10,27 @@ function PostForm() {
   });
 
   const [editingId, setEditingId] = useState<string | null>(
-    localStorage.getItem('editingPostId')
-  ) 
+    localStorage.getItem("editingPostId")
+  );
 
   const { title, body } = inputValue;
 
-  const storedId = localStorage.getItem("editingPostId");
+  // LocalStorage 값 변화를 감지
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setEditingId(localStorage.getItem("editingPostId"));
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      if (storedId) {
+    const fetchPost = async () => {
+      if (editingId) {
         try {
-          const response = await mockApi.get(`/posts/${storedId}`);
+          const response = await mockApi.get(`/posts/${editingId}`);
           const post = response.data; // 응답 내부의 데이터 추출
 
           setInputValue({
@@ -31,9 +40,14 @@ function PostForm() {
         } catch (e) {
           console.error("게시글 조회 실패:", e);
         }
+      } else {
+        // 새로 작성 시 비워주기
+        setInputValue({ title: "", body: "" });
       }
     };
-  }, [storedId]);
+
+    fetchPost();
+  }, [editingId]);
 
   //! Event Handler
   const handleInputValueChange = (
@@ -49,16 +63,17 @@ function PostForm() {
 
   const handleSubmit = async () => {
     try {
-      if (storedId) {
+      if (editingId) {
         // 수정
-        await mockApi.put(`/posts/${storedId}`, { title, body });
+        await mockApi.put(`/posts/${editingId}`, { title, body });
         alert("수정 완료");
         localStorage.removeItem("editingPostId");
+        setEditingId(null);
       } else {
         // 생성
-
         if (title.trim() && body.trim()) {
-          await mockApi.post(`/posts`, { title, body });
+          await mockApi.post("/posts", { title, body });
+          localStorage.setItem("latestPost", JSON.stringify(inputValue));
           alert("등록 완료");
         } else {
           alert("제목과 내용을 반드시 작성해주세요.");
@@ -69,7 +84,6 @@ function PostForm() {
         title: "",
         body: "",
       });
-
     } catch (e) {
       console.error("요청 실패:", e);
       alert("오류가 발생했습니다. 다시 시도해주세요.");
@@ -78,7 +92,7 @@ function PostForm() {
 
   return (
     <div>
-      <h2>{storedId ? "게시글 수정" : "게시글 생성"}</h2>
+      <h2>{editingId ? "게시글 수정" : "게시글 생성"}</h2>
       <input
         type="text"
         name="title"
@@ -95,7 +109,7 @@ function PostForm() {
       />
       <br />
       <button onClick={handleSubmit}>
-        {storedId ? "수정하기" : "등록하기"}
+        {editingId ? "수정하기" : "등록하기"}
       </button>
     </div>
   );

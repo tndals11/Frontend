@@ -8,7 +8,6 @@ function PostList() {
   const fetchPosts = async () => {
     // % GET
     const response = await mockApi.get("/posts?_limit=5");
-
     setPosts(response.data);
   };
 
