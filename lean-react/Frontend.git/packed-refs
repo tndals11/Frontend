@@ -1,0 +1,5 @@
+# pack-refs with: peeled fully-peeled sorted 
+706a365d4ba252d75c9a3f7bdb218a429cc488ee refs/heads/2025-10-02_반복문
+009e2ba329abfaf7c5bd8491ecdb759951258bd0 refs/heads/main
+f00bf065afa963f37addbc11e73fd28923b6110e refs/heads/recover-stash2
+bf162199ba0c32d790e330f764ea4e387b8f8cff refs/pull/1/head

@@ -1,0 +1,66 @@
+import type { AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig } from "axios";
+import axios from "axios";
+
+
+export const api: AxiosInstance = axios.create({
+  baseURL: API_BASE,
+  timeout: 10000,
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json"
+  }
+});
+
+
+//? Axios 특징
+// 1) Promise 기반: .then() / await 사용가능
+// 2) 자동 JSON 처리: 객체를 JSON으로 변환하거나 파싱 자동
+// 3) 응답 객체 구조화: response.data만 확인
+// 4) 인터셉터 지원: 요청/응답 가로채기 가능 (토큰/에러 처리 등)
+// 5) Axios 인스턴스: 공통 설정을 모아 재사용 가능
+
+//? Axios 응답 구조(response)
+// EX) const response = await axios.get("URL 경로");
+
+/*
+  ! response: 객체 구조
+  {
+    data: { ... },      : 실제 데이터
+    satus: 200,         : HTTP 상태 코드
+    statusText: OK,     : 상태 메시지
+    headers: { ... },   : 응답 헤더
+    config: { ... },    : 요청 설정
+    request: { ... },   : 요청 객체
+  }
+
+  const data = response.data;
+*/
+
+//! 요청 인터셉터: 로컬 자동 삽입
+// api.interceptors.request.use(요청설정이행, 요청설정에러)
+api.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+  const token = localStorage.getItem('accessToken');
+  
+  if (token && config.headers) {
+    config.headers["Authorization"] = `Bearer ${token}`;
+  }
+
+  return config;
+}, (e) => Promise.reject(e));
+
+
+//! 응답 인터셉터: 401처리(Unauthorized: 자격 증명 부족), 에러 포맷 통일
+// api.interceptors.response.use(응답설정이행, 응답설정에러);
+api.interceptors.response.use((response) => response, async (error) => {
+  const status = error?.response?.status;
+
+  if (status === 401) {
+    // 예: 토큰 만료 -> 리프레시 시도 또는 로그아웃
+    localStorage.removeItem('accessToken');
+    // 필요 시 로그인 페이지로 이동
+    // window.location.href = '/login';
+
+    // 에러 객체 구조 통일
+    return Promise.reject(e);
+  }
+})
