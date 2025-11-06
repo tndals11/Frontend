@@ -17,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/tndals11/frontend/issues"
   },
-  "homepage": "https://github.com/tndals11/frontend#readme"
+  "homepage": "https://github.com/tndals11/frontend#readme",
+  "dependencies": {
+    "axios": "^1.13.2"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.9.36"
+  }
 }

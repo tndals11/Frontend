@@ -3,6 +3,7 @@ import Basic from "@/pages/basic/index";
 import Todo from "@/pages/todo/index";
 import { Navigate, Route, Routes } from "react-router-dom";
 import RoutePages from "@/pages/route";
+import HTTP from "@/pages/http";
 
 import Hooks from "@/pages/hooks";
 import Navbar from "./components/Navbar";
@@ -30,6 +31,7 @@ function App() {
         */}
         <Route path="/route/*" element={<RoutePages />} />
         <Route path="/hooks" element={<Hooks />} />
+        <Route path="/http" element={<HTTP />} />
 
         {/* practice 실습 코드 */}
         <Route path="/practice/post" element={<PostList />} />
@@ -39,8 +41,8 @@ function App() {
         {/* pages/route - Product 실습코드 */}
         <Route path="/" element={<Navigate to={"/products"} />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<ProductDetail />} >
-        {/* 중첩 라우트: 상태경로 */}
+        <Route path="/products/:id" element={<ProductDetail />}>
+          {/* 중첩 라우트: 상태경로 */}
           <Route path="info" element={<ProductInfo />} />
           <Route path="reviews" element={<ProductReviews />} />
         </Route>
