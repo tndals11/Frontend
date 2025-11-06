@@ -1,7 +1,7 @@
 import "./App.css";
 import Basic from "@/pages/basic/index";
 import Todo from "@/pages/todo/index";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import RoutePages from "@/pages/route";
 
 import Hooks from "@/pages/hooks";
@@ -9,6 +9,11 @@ import Navbar from "./components/Navbar";
 import PostList from "./pages/basic/PostList";
 import PostDetail from "./components/PostDetail";
 import SearchApp from "./pages/practices/SearchApp";
+import Products from "./pages/route/Products";
+import ProductDetail from "./pages/route/ProductDetail";
+import ProductInfo from "./pages/route/ProductInfo";
+import ProductReviews from "./pages/route/ProductReviews";
+import ProductDashboard from "./pages/route/ProductDashboard";
 
 function App() {
   return (
@@ -26,10 +31,20 @@ function App() {
         <Route path="/route/*" element={<RoutePages />} />
         <Route path="/hooks" element={<Hooks />} />
 
+        {/* practice 실습 코드 */}
         <Route path="/practice/post" element={<PostList />} />
         <Route path="/practice/post/:id" element={<PostDetail />} />
-
         <Route path="/practice/search" element={<SearchApp />} />
+
+        {/* pages/route - Product 실습코드 */}
+        <Route path="/" element={<Navigate to={"/products"} />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<ProductDetail />} >
+        {/* 중첩 라우트: 상태경로 */}
+          <Route path="info" element={<ProductInfo />} />
+          <Route path="reviews" element={<ProductReviews />} />
+        </Route>
+        <Route path="/dashboard" element={<ProductDashboard />} />
       </Routes>
     </>
   );
