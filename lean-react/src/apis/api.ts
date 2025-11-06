@@ -1,16 +1,21 @@
 import type { AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig } from "axios";
 import axios from "axios";
 
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8080/api/v1';
+
+//? cf) process.env.REACT_APP_API_BASE
+// : 환경 변수
+// - REACT 앱에서 API 서버의 기본 URL 같은 설정값을 외부에서 주입받을 때 사용
 
 export const api: AxiosInstance = axios.create({
   baseURL: API_BASE,
   timeout: 10000,
+  // 10초 타임아웃 - 요청이 10초 이상 걸릴 경우 자동으로 요청 취소 + 타임아웃 에러 발생
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json"
   }
 });
-
 
 //? Axios 특징
 // 1) Promise 기반: .then() / await 사용가능
@@ -51,8 +56,8 @@ api.interceptors.request.use((config: InternalAxiosRequestConfig) => {
 
 //! 응답 인터셉터: 401처리(Unauthorized: 자격 증명 부족), 에러 포맷 통일
 // api.interceptors.response.use(응답설정이행, 응답설정에러);
-api.interceptors.response.use((response) => response, async (error) => {
-  const status = error?.response?.status;
+api.interceptors.response.use((response) => response, async (e) => {
+  const status = e?.response?.status;
 
   if (status === 401) {
     // 예: 토큰 만료 -> 리프레시 시도 또는 로그아웃
