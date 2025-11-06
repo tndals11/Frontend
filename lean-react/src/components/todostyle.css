@@ -1,0 +1,39 @@
+
+.container {
+  display: flex;              
+  justify-content: center;      
+  align-items: center;          
+  height: 100vh;             
+background: linear-gradient(135deg, rgba(79,70,229,0.25), rgba(24,197,94,0.25));
+}
+
+.todo-container {
+  width: 500px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.todo-btn {
+  background: linear-gradient(135deg, rgba(37,99,235,0.3), rgba(56,189,248,0.3));
+  color: #e6f2ff;
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 18px rgba(37,99,235,0.3);
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.todo-btn:hover {
+  background: linear-gradient(135deg, rgba(37,99,235,0.45), rgba(56,189,248,0.45));
+box-shadow: 0 6px 25px rgba(56,189,248,0.4);
+}
+
+.todo-container ul {
+  list-style: none;
+}
+
+.todo-container span {
+  margin-right: 20px;
+}
