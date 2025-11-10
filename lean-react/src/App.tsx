@@ -4,6 +4,7 @@ import Todo from "@/pages/todo/index";
 import { Navigate, Route, Routes } from "react-router-dom";
 import RoutePages from "@/pages/route";
 import HTTP from "@/pages/http";
+import GlobalState from "@/pages/global_state";
 
 import Hooks from "@/pages/hooks";
 import Navbar from "./components/Navbar";
@@ -32,6 +33,7 @@ function App() {
         <Route path="/route/*" element={<RoutePages />} />
         <Route path="/hooks" element={<Hooks />} />
         <Route path="/http" element={<HTTP />} />
+        <Route path="/global-state" element={<GlobalState />} />
 
         {/* practice 실습 코드 */}
         <Route path="/practice/post" element={<PostList />} />

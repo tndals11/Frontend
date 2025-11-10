@@ -18,6 +18,7 @@ function Navbar() {
     "basic",
     "route",
     "HTTP",
+    "global-state",
     "hooks",
     "practice/post",
     "practice/search",
