@@ -2,6 +2,7 @@ import ToggleSection from "@/components/ToggleSection";
 import React from "react";
 import HTTP from "./HTTP";
 import Axios from "./Axios";
+import ArticlePage from "./ArticlePage";
 
 //
 
@@ -14,6 +15,10 @@ function Index() {
 
       <ToggleSection title="1. Axios">
         <Axios />
+      </ToggleSection>
+
+      <ToggleSection title="2. Article(REST API + REACT)">
+        <ArticlePage />
       </ToggleSection>
     </div>
   );
