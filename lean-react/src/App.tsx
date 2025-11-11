@@ -16,10 +16,30 @@ import ProductDetail from "./pages/route/ProductDetail";
 import ProductInfo from "./pages/route/ProductInfo";
 import ProductReviews from "./pages/route/ProductReviews";
 import ProductDashboard from "./pages/route/ProductDashboard";
+import { useUIStore } from "./stores/ui.store";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import Toast from "./components/toast";
 
 function App() {
+  //% zustand의 store는 호출 시 내부의 스토어를 객체 형식으로 반환
+  //% const {전역상태내부의 속성 또는 함수명 } = useUIStore();
+  //%> 내부의 모든 속성과 메서드 호출 후 좌항에 일치하는 값만을 남김
+
+  //# 필요한 속성, 메서드만 뽑아서 반환
+  const darkMode = useUIStore((state) => state.darkMode); // true: 다크 / false: 라이트
+
+  const appStyle = {
+    minHeight: "100vh",
+    backgroundColor: darkMode ? "#111" : "#fff",
+    color: darkMode ? "#bbb" : "#111",
+    transition: "all 0.3s ease",
+  };
+
   return (
-    <>
+    <div style={appStyle}>
+      <Header />
+      <Sidebar />
       <Navbar />
       {/* Routes 태그: Route를 감싸는 컴포넌트 */}
       <Routes>
@@ -50,7 +70,8 @@ function App() {
         </Route>
         <Route path="/dashboard" element={<ProductDashboard />} />
       </Routes>
-    </>
+      <Toast />
+    </div>
   );
 }
 
