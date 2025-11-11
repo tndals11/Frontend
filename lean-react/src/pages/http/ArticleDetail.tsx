@@ -1,4 +1,4 @@
-import { publicApi } from "@/apis/article.api";
+import { publicApi } from "@/apis/axiosInstance";
 import { type ArticleDetailResponse, getArticleById } from "@/apis/articleApi";
 import React, { useEffect, useState } from "react";
 

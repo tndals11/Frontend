@@ -1,6 +1,6 @@
 // +) DTO 타입 설계
 
-import { privateApi, publicApi } from "./article.api";
+import { privateApi, publicApi } from "./axiosInstance";
 
 //? 게시글 생성 요청 DTO
 interface ArticleCreateRequest {
