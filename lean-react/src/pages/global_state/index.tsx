@@ -3,6 +3,9 @@ import Context from "./Context";
 import ToggleSection from "@/components/ToggleSection";
 import Zustand from "./Zustand";
 import Signin from "./Signin";
+import GlobalData from "./GlobalData";
+import TrunckReservationList from "../../components/TrunckReservationList";
+import TruckDetailPage from "@/components/TruckDetailPage";
 
 function index() {
   return (
@@ -21,6 +24,14 @@ function index() {
 
       <ToggleSection title="3. SignIn 페이지">
         <Signin />
+      </ToggleSection>
+
+      <ToggleSection title="4. Zustand 연습(global-data)">
+        <GlobalData />
+      </ToggleSection>
+
+      <ToggleSection title="5. Zustand 연습(reservation)">
+        <TruckDetailPage />
       </ToggleSection>
     </div>
   );

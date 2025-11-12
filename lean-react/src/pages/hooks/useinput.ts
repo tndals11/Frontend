@@ -10,7 +10,7 @@ type UseInputReturn = {
   //& bind(묶다) - input 속성에 바로 연결 가능한 객체 { value, onChange}
   bind: {
     value: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   }
 }
 
