@@ -20,8 +20,10 @@ import { useUIStore } from "./stores/ui.store";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import Toast from "./components/Toast";
+import Style from "./pages/css-style/index";
 import { useGlobalStore } from "./stores/global.store";
 import { useEffect } from "react";
+import CSS from "./pages/css-style/CSS";
 
 function App() {
   const { isLoaded, fetchGlobalData } = useGlobalStore();
@@ -65,6 +67,7 @@ function App() {
         <Route path="/hooks" element={<Hooks />} />
         <Route path="/http" element={<HTTP />} />
         <Route path="/global-state" element={<GlobalState />} />
+        <Route path="/style" element={<Style />} />
 
         {/* practice 실습 코드 */}
         <Route path="/practice/post" element={<PostList />} />

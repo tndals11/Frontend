@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  /*
+  ! box-sizing: 요소의 너비와 높이를 계산하는 방법을 지정 
+    : border-box - 콘텐츠/패딩/보더까지를 너비, 높이로 계산
+    : content-box (기본값)
+  */
+  box-sizing: border-box;
+}
+
+body {
+  /* 
+  페이지 전역 폰트 설정 
+  : 폰트 관련 데이터는 asstes/fonts에 저장
+  */
+  font-family: "Noto Sans KR", "Noto Sans", sans-serif;
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
