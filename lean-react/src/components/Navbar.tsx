@@ -24,6 +24,7 @@ function Navbar() {
     "practice/post",
     "practice/search",
     "todo",
+    "p/dashboard",
   ];
 
   return (

@@ -5,12 +5,12 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import RoutePages from "@/pages/route";
 import HTTP from "@/pages/http";
 import GlobalState from "@/pages/global_state";
-
 import Hooks from "@/pages/hooks";
 import Navbar from "./components/Navbar";
 import PostList from "./pages/basic/PostList";
 import PostDetail from "./components/PostDetail";
 import SearchApp from "./pages/practices/SearchApp";
+import Dashboard from "./emotion/Dashboard";
 import Products from "./pages/route/Products";
 import ProductDetail from "./pages/route/ProductDetail";
 import ProductInfo from "./pages/route/ProductInfo";
@@ -22,8 +22,11 @@ import Sidebar from "./components/Sidebar";
 import Toast from "./components/Toast";
 import Style from "./pages/css-style/index";
 import { useGlobalStore } from "./stores/global.store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import CSS from "./pages/css-style/CSS";
+import { darkTheme, lightTheme } from "./emotion/theme";
+import { ThemeProvider } from "@emotion/react";
+import { GlobalStyles } from "./emotion/global";
 
 function App() {
   const { isLoaded, fetchGlobalData } = useGlobalStore();
@@ -39,18 +42,25 @@ function App() {
   //% const {전역상태내부의 속성 또는 함수명 } = useUIStore();
   //%> 내부의 모든 속성과 메서드 호출 후 좌항에 일치하는 값만을 남김
 
-  //# 필요한 속성, 메서드만 뽑아서 반환
-  const darkMode = useUIStore((state) => state.darkMode); // true: 다크 / false: 라이트
+  // //# 필요한 속성, 메서드만 뽑아서 반환
+  // const darkMode = useUIStore((state) => state.darkMode); // true: 다크 / false: 라이트
 
-  const appStyle = {
-    minHeight: "100vh",
-    backgroundColor: darkMode ? "#111" : "#fff",
-    color: darkMode ? "#bbb" : "#111",
-    transition: "all 0.3s ease",
-  };
+  // const appStyle = {
+  //   minHeight: "100vh",
+  //   backgroundColor: darkMode ? "#111" : "#fff",
+  //   color: darkMode ? "#bbb" : "#111",
+  //   transition: "all 0.3s ease",
+  // };
+
+  const [isDark, setIsDark] = useState<boolean>(false);
+  const toggleTheme = () => setIsDark((prev) => !prev);
+
+  const theme = isDark ? darkTheme : lightTheme;
 
   return (
-    <div style={appStyle}>
+    // <div style={appStyle}>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles theme={theme} />
       <Header />
       <Sidebar />
       <Navbar />
@@ -73,6 +83,10 @@ function App() {
         <Route path="/practice/post" element={<PostList />} />
         <Route path="/practice/post/:id" element={<PostDetail />} />
         <Route path="/practice/search" element={<SearchApp />} />
+        <Route
+          path="/p/dashboard"
+          element={<Dashboard toggleTheme={toggleTheme} />}
+        />
 
         {/* pages/route - Product 실습코드 */}
         <Route path="/" element={<Navigate to={"/products"} />} />
@@ -85,7 +99,7 @@ function App() {
         <Route path="/dashboard" element={<ProductDashboard />} />
       </Routes>
       <Toast />
-    </div>
+    </ThemeProvider>
   );
 }
 
