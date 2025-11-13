@@ -3,6 +3,8 @@ import CSS from "./CSS";
 import ToggleSection from "@/components/ToggleSection";
 import Module from "./Module";
 import StyleComponents from "./StyleComponents";
+import Emotion from "./Emotion";
+import EmotionPractice from "./emotion.practice/EmotionPractice";
 
 function Index() {
   return (
@@ -21,6 +23,14 @@ function Index() {
 
       <ToggleSection title="3. 스타일 컴포넌트 CSS">
         <StyleComponents />
+      </ToggleSection>
+
+      <ToggleSection title="4. 이모션 CSS">
+        <Emotion />
+      </ToggleSection>
+
+      <ToggleSection title="5. 이모션 + 반응형">
+        <EmotionPractice />
       </ToggleSection>
     </div>
   );
