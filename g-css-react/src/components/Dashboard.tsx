@@ -4,6 +4,7 @@ import ThemeToggle from "./ThemeToggle";
 import { CardContainer, CardTitle } from "./Card";
 import SalesChartCharJS from "./charts/SalesChartCharJS";
 import SalesChartRecharts from "./charts/SalesChartRecharts";
+import Clapm from "../pages/Clapm";
 function Dashboard({ toggleTheme }: { toggleTheme: () => void }) {
   // 예시 데이터 (mock data)
   const data = [
@@ -48,6 +49,10 @@ function Dashboard({ toggleTheme }: { toggleTheme: () => void }) {
         <CardContainer>
           <CardTitle>매출(Rechart.js)</CardTitle>
           <SalesChartRecharts />
+        </CardContainer>
+
+        <CardContainer>
+          <Clapm />
         </CardContainer>
       </Grid>
     </Page>
